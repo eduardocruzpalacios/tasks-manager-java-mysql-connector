@@ -19,7 +19,7 @@ public class In {
 				exit = true;
 			}
 		} while (!exit);
-		if (answer.equals("yes") || answer.equals("no")) {
+		if (answer.equals("yes")) {
 			return true;
 		} else {
 			return false;
