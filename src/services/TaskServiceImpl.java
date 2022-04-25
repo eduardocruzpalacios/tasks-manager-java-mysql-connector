@@ -30,11 +30,11 @@ public class TaskServiceImpl implements Crud {
 	@Override
 	public boolean findAll() {
 		List<Task> tasks = db.readTasks();
+		System.out.println("TASK LIST");
 		if (tasks != null) {
 			tasks.forEach(e -> {
 				System.out.println(e);
 			});
-			System.out.println("TASK LIST");
 			return true;
 		}
 		System.out.println("Error!");

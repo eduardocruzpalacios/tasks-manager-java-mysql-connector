@@ -4,12 +4,10 @@ import java.util.Scanner;
 
 public class In {
 
-	private static Scanner scanner;
-
+	@SuppressWarnings("resource")
 	public static String getString(String message) {
 		System.out.println(message);
-		scanner = new Scanner(System.in);
-		return scanner.nextLine();
+		return new Scanner(System.in, "ISO-8859-1").nextLine();
 	}
 
 	public static boolean getBoolean(String message) {
@@ -37,7 +35,6 @@ public class In {
 			scanner.next();
 		}
 		getInt = scanner.nextInt();
-		scanner.close();
 		return getInt;
 	}
 

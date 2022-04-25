@@ -50,6 +50,7 @@ public class Db {
 				statement = (Statement) connection.createStatement();
 				result = statement.execute(QueryBuilder.createTask(task));
 				statement.close();
+				result = true;
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -69,7 +70,7 @@ public class Db {
 					task.setTitle(resultSet.getString("title"));
 					task.setContent(resultSet.getString("content"));
 					task.setCompleted(resultSet.getBoolean("is_completed"));
-					task.setDateCreated(resultSet.getObject(4, LocalDateTime.class));
+					task.setDateCreated(resultSet.getTimestamp(5).toLocalDateTime());
 					tasks.add(task);
 				}
 				resultSet.close();

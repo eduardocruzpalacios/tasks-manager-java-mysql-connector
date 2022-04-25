@@ -1,12 +1,16 @@
 package dao;
 
+import java.sql.Timestamp;
+
 import model.Task;
 
 public class QueryBuilder {
 
 	public static String createTask(Task task) {
-		return "INSERT INTO tasks (id, title, content, is_completed, date_created) VALUES (NULL, " + task.getTitle()
-				+ ", " + task.getContent() + ", " + task.isCompleted() + ", " + task.getDateCreated() + ")";
+		Timestamp timestamp = Timestamp.valueOf(task.getDateCreated());
+		String query = "INSERT INTO tasks (id, title, content, is_completed, date_created) VALUES (NULL, '"
+				+ task.getTitle() + "', '" + task.getContent() + "', " + task.isCompleted() + ", '" + timestamp + "')";
+		return query;
 	}
 
 	public static String readAllTasks() {
