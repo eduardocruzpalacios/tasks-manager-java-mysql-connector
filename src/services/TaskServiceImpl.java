@@ -22,10 +22,9 @@ public class TaskServiceImpl implements Crud {
 		if (db.createTask(task)) {
 			System.out.println("Task created successfully!");
 			return true;
-		} else {
-			System.out.println("Error!");
-			return false;
 		}
+		System.out.println("Error!");
+		return false;
 	}
 
 	@Override
