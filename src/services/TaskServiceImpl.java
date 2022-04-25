@@ -35,8 +35,10 @@ public class TaskServiceImpl implements Crud {
 			tasks.forEach(e -> {
 				System.out.println(e);
 			});
+			System.out.println("TASK LIST");
 			return true;
 		}
+		System.out.println("Error!");
 		return false;
 	}
 
