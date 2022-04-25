@@ -1,6 +1,7 @@
 package services;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import dao.Db;
 import model.Task;
@@ -25,6 +26,18 @@ public class TaskServiceImpl implements Crud {
 			System.out.println("Error!");
 			return false;
 		}
+	}
+
+	@Override
+	public boolean findAll() {
+		List<Task> tasks = db.readTasks();
+		if (tasks != null) {
+			tasks.forEach(e -> {
+				System.out.println(e);
+			});
+			return true;
+		}
+		return false;
 	}
 
 }
