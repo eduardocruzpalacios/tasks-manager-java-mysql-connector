@@ -3,7 +3,6 @@ package dao;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,7 +93,7 @@ public class Db {
 					task.setTitle(resultSet.getString("title"));
 					task.setContent(resultSet.getString("content"));
 					task.setCompleted(resultSet.getBoolean("is_completed"));
-					task.setDateCreated(resultSet.getObject(4, LocalDateTime.class));
+					task.setDateCreated(resultSet.getTimestamp(5).toLocalDateTime());
 				}
 				resultSet.close();
 				statement.close();
@@ -127,6 +126,7 @@ public class Db {
 				statement = (Statement) connection.createStatement();
 				result = statement.execute(QueryBuilder.deleteTask(id));
 				statement.close();
+				result = true;
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

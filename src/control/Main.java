@@ -10,11 +10,11 @@ public class Main {
 	public static void main(String[] args) {
 		TaskServiceImpl taskServiceImpl = new TaskServiceImpl();
 		Window.start();
-		Menu.taskManagement();
 		int option;
 		boolean exit = false;
 		do {
 			taskServiceImpl.findAll();
+			Menu.taskManagement();
 			option = In.getIntBetween(1, 4, "What do you want to do?", "choose an option between 1 and 4");
 			switch (option) {
 			case 1:

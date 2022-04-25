@@ -23,7 +23,7 @@ public class TaskServiceImpl implements Crud {
 			System.out.println("Task created successfully!");
 			return true;
 		}
-		System.out.println("Error!");
+		System.out.println("Error in Database!");
 		return false;
 	}
 
@@ -37,7 +37,7 @@ public class TaskServiceImpl implements Crud {
 			});
 			return true;
 		}
-		System.out.println("Error!");
+		System.out.println("Error in Database!");
 		return false;
 	}
 
@@ -65,7 +65,7 @@ public class TaskServiceImpl implements Crud {
 			System.out.println("Task updated successfully!");
 			return true;
 		}
-		System.out.println("Error!");
+		System.out.println("Error in Database!");
 		return false;
 	}
 
@@ -73,7 +73,7 @@ public class TaskServiceImpl implements Crud {
 	public boolean delete() {
 		int id = In.getInt("id?");
 		Task task = db.readTask(id);
-		if (task == null) {
+		if (task.getId() != id) {
 			System.out.println("No task with id " + id);
 			return false;
 		}
@@ -81,7 +81,7 @@ public class TaskServiceImpl implements Crud {
 			System.out.println("Task deleted successfully!");
 			return true;
 		}
-		System.out.println("Error!");
+		System.out.println("Error in Database!");
 		return false;
 	}
 
