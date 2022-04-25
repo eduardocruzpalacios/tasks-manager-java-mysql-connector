@@ -42,4 +42,14 @@ public class TaskServiceImpl implements Crud {
 		return false;
 	}
 
+	@Override
+	public boolean delete(int id) {
+		if (db.deleteTask(id)) {
+			System.out.println("Task deleted successfully!");
+			return true;
+		}
+		System.out.println("Error!");
+		return false;
+	}
+
 }
