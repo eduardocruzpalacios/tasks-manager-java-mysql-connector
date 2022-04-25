@@ -40,3 +40,13 @@ FROM
   tasks
 WHERE
   id = 1;
+
+UPDATE
+  tasks
+SET
+  title = 'Prueba changed',
+  content = 'bla changed',
+  is_completed = '1',
+  date_created = '2022-04-05 18:55:43'
+WHERE
+  id = 1;
