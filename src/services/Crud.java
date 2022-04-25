@@ -6,6 +6,8 @@ public interface Crud {
 
 	public boolean findAll();
 
+	public boolean update();
+
 	public boolean delete(int id);
 
 }

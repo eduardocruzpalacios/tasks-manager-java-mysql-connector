@@ -43,6 +43,34 @@ public class TaskServiceImpl implements Crud {
 	}
 
 	@Override
+	public boolean update() {
+		int id = In.getInt("id?");
+		Task task = db.readTask(id);
+		if (task == null) {
+			System.out.println("No task with id " + id);
+			return false;
+		}
+		if (In.getBoolean("Do you want to change the title?")) {
+			String title = In.getString("new title?");
+			task.setTitle(title);
+		}
+		if (In.getBoolean("Do you want to change the content?")) {
+			String content = In.getString("new content?");
+			task.setTitle(content);
+		}
+		if (In.getBoolean("Do you want to change whether it is completed?")) {
+			boolean isCompleted = In.getBoolean("Is completed?");
+			task.setCompleted(isCompleted);
+		}
+		if (db.updateTask(task)) {
+			System.out.println("Task updated successfully!");
+			return true;
+		}
+		System.out.println("Error!");
+		return false;
+	}
+
+	@Override
 	public boolean delete(int id) {
 		if (db.deleteTask(id)) {
 			System.out.println("Task deleted successfully!");

@@ -82,6 +82,29 @@ public class Db {
 		return null;
 	}
 
+	public Task readTask(int id) {
+		if (connect()) {
+			try {
+				statement = (Statement) connection.createStatement();
+				resultSet = statement.executeQuery(QueryBuilder.readTaskById(id));
+				Task task = new Task();
+				while (resultSet.next()) {
+					task.setId(resultSet.getInt("id"));
+					task.setTitle(resultSet.getString("title"));
+					task.setContent(resultSet.getString("content"));
+					task.setCompleted(resultSet.getBoolean("is_completed"));
+					task.setDateCreated(resultSet.getObject(4, LocalDateTime.class));
+				}
+				resultSet.close();
+				statement.close();
+				return task;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+
 	public boolean updateTask(Task task) {
 		boolean result = false;
 		if (connect()) {
