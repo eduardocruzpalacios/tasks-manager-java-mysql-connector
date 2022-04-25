@@ -13,4 +13,8 @@ public class QueryBuilder {
 		return "SELECT * FROM tasks";
 	}
 
+	public static String readTaskById(int id) {
+		return "SELECT * FROM tasks WHERE id = " + id;
+	}
+
 }
