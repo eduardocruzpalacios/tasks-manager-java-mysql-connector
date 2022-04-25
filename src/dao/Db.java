@@ -1,8 +1,16 @@
 package dao;
 
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+
+import model.Task;
 
 public class Db {
 
@@ -30,6 +38,34 @@ public class Db {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	private Statement statement;
+	private ResultSet resultSet;
+
+	public List<Task> readTasks() {
+		if (connect()) {
+			try {
+				statement = (Statement) connection.createStatement();
+				resultSet = statement.executeQuery(QueryBuilder.readAllTasks());
+				List<Task> tasks = new ArrayList<Task>();
+				while (resultSet.next()) {
+					Task task = new Task();
+					task.setId(resultSet.getInt("id"));
+					task.setTitle(resultSet.getString("title"));
+					task.setContent(resultSet.getString("content"));
+					task.setCompleted(resultSet.getBoolean("is_completed"));
+					task.setDateCreated(resultSet.getObject(4, LocalDateTime.class));
+					tasks.add(task);
+				}
+				resultSet.close();
+				statement.close();
+				return tasks;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
 	}
 
 }
