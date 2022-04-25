@@ -22,4 +22,8 @@ public class QueryBuilder {
 				+ task.isCompleted() + ", date_created = " + task.getDateCreated() + " WHERE id = " + task.getId();
 	}
 
+	public static String deleteTask(int id) {
+		return "DELETE FROM tasks WHERE id = " + id;
+	}
+
 }
