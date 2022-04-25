@@ -9,4 +9,8 @@ public class QueryBuilder {
 				+ ", " + task.getContent() + ", " + task.isCompleted() + ", " + task.getDateCreated() + ")";
 	}
 
+	public static String readAllTasks() {
+		return "SELECT * FROM tasks";
+	}
+
 }
