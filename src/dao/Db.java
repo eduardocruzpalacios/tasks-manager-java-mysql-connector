@@ -43,6 +43,20 @@ public class Db {
 	private Statement statement;
 	private ResultSet resultSet;
 
+	public boolean createTask(Task task) {
+		boolean result = false;
+		if (connect()) {
+			try {
+				statement = (Statement) connection.createStatement();
+				result = statement.execute(QueryBuilder.createTask(task));
+				statement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
 	public List<Task> readTasks() {
 		if (connect()) {
 			try {
