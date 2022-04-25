@@ -12,6 +12,7 @@ CREATE TABLE tasks (
 ) ENGINE = InnoDB;
 
 /* CRUD QUERIES */
+/* Create one */
 INSERT INTO
   tasks (
     id,
@@ -29,11 +30,13 @@ VALUES
     '2022-04-25 18:55:43.000000'
   );
 
+/* Read all */
 SELECT
   *
 FROM
   tasks;
 
+/* Read one by id */
 SELECT
   *
 FROM
@@ -41,6 +44,7 @@ FROM
 WHERE
   id = 1;
 
+/* Update one by id */
 UPDATE
   tasks
 SET
@@ -51,6 +55,7 @@ SET
 WHERE
   id = 1;
 
+/* Delete one by id */
 DELETE FROM
   tasks
 WHERE
