@@ -13,6 +13,13 @@ public class Task {
 	public Task() {
 	}
 
+	public Task(String title, String content, boolean isCompleted, LocalDateTime dateCreated) {
+		this.title = title;
+		this.content = content;
+		this.isCompleted = isCompleted;
+		this.dateCreated = dateCreated;
+	}
+
 	public Task(int id, String title, String content, boolean isCompleted, LocalDateTime dateCreated) {
 		this.id = id;
 		this.title = title;
