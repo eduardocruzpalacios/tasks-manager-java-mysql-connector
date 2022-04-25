@@ -96,4 +96,18 @@ public class Db {
 		return result;
 	}
 
+	public boolean deleteTask(int id) {
+		boolean result = false;
+		if (connect()) {
+			try {
+				statement = (Statement) connection.createStatement();
+				result = statement.execute(QueryBuilder.deleteTask(id));
+				statement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
 }
