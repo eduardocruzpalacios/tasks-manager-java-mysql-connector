@@ -70,7 +70,13 @@ public class TaskServiceImpl implements Crud {
 	}
 
 	@Override
-	public boolean delete(int id) {
+	public boolean delete() {
+		int id = In.getInt("id?");
+		Task task = db.readTask(id);
+		if (task == null) {
+			System.out.println("No task with id " + id);
+			return false;
+		}
 		if (db.deleteTask(id)) {
 			System.out.println("Task deleted successfully!");
 			return true;

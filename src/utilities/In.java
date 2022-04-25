@@ -41,4 +41,18 @@ public class In {
 		return getInt;
 	}
 
+	public static int getIntBetween(int num1, int num2, String message, String error) {
+		boolean exit = false;
+		int getIntBetween = 0;
+		while (!exit) {
+			getIntBetween = In.getInt(message);
+			if (getIntBetween >= num1 && getIntBetween <= num2) {
+				exit = true;
+			} else {
+				System.out.println(error);
+			}
+		}
+		return getIntBetween;
+	}
+
 }

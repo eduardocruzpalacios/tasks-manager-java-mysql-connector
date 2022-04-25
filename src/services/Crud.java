@@ -8,6 +8,6 @@ public interface Crud {
 
 	public boolean update();
 
-	public boolean delete(int id);
+	public boolean delete();
 
 }
