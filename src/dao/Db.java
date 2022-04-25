@@ -112,6 +112,7 @@ public class Db {
 				statement = (Statement) connection.createStatement();
 				result = statement.execute(QueryBuilder.updateTask(task));
 				statement.close();
+				result = true;
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

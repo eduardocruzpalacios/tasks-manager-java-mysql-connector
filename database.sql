@@ -50,8 +50,7 @@ UPDATE
 SET
   title = 'Prueba changed',
   content = 'bla changed',
-  is_completed = '1',
-  date_created = '2022-04-05 18:55:43'
+  is_completed = '1'
 WHERE
   id = 1;
 

@@ -45,7 +45,7 @@ public class TaskServiceImpl implements Crud {
 	public boolean update() {
 		int id = In.getInt("id?");
 		Task task = db.readTask(id);
-		if (task == null) {
+		if (task.getId() != id) {
 			System.out.println("No task with id " + id);
 			return false;
 		}
@@ -55,7 +55,7 @@ public class TaskServiceImpl implements Crud {
 		}
 		if (In.getBoolean("Do you want to change the content?")) {
 			String content = In.getString("new content?");
-			task.setTitle(content);
+			task.setContent(content);
 		}
 		if (In.getBoolean("Do you want to change whether it is completed?")) {
 			boolean isCompleted = In.getBoolean("Is completed?");
