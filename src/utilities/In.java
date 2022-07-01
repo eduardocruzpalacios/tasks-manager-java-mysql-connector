@@ -31,7 +31,7 @@ public class In {
 	public static int getInt(String message) {
 		System.out.println(message);
 		int getInt;
-		Scanner scanner = new Scanner(System.in);
+		scanner = new Scanner(System.in);
 		while (scanner.hasNextInt() == false) {
 			System.out.println(message);
 			scanner.next();
