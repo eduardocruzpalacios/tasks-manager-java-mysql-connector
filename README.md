@@ -18,3 +18,7 @@
 |control|the flow of the application and the execution class|
 |gui|the graphics|
 |tools|static methods for frequently needs, such as asking for a String to the user|
+
+## Testing
+- Unit tests are made with JUnit 5
+- Only model classes are tested
