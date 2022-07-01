@@ -17,4 +17,21 @@ public class TaskForm {
 		return task;
 	}
 
+	public static Task edit(Task task) {
+		System.out.println("EDIT TASK FORM");
+		if (In.getBoolean("Do you want to change the title?")) {
+			String title = In.getString("new title?");
+			task.setTitle(title);
+		}
+		if (In.getBoolean("Do you want to change the content?")) {
+			String content = In.getString("new content?");
+			task.setContent(content);
+		}
+		if (In.getBoolean("Do you want to change whether it is completed?")) {
+			boolean isCompleted = In.getBoolean("Is completed?");
+			task.setCompleted(isCompleted);
+		}
+		return task;
+	}
+
 }
