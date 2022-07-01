@@ -14,6 +14,7 @@
 |----------------|-------------------------------|
 |model|model for objects (attributes, constructors, getters, setters & .toString())|
 |dao|methods to communicate with data source and perform the tasks demanded by the business logic|
+|form|methods to ask the user for data to instantiate objects|
 |services|interfaces with business-logic-oriented methods along with the classes implementing them|
 |control|the flow of the application and the execution class|
 |gui|Graphic User Interface|
