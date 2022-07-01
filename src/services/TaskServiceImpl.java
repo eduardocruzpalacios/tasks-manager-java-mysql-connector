@@ -1,9 +1,9 @@
 package services;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import dao.Db;
+import form.TaskForm;
 import model.Task;
 import utilities.In;
 
@@ -13,12 +13,7 @@ public class TaskServiceImpl implements Crud {
 
 	@Override
 	public boolean create() {
-		System.out.println("FORM TO CREATE A NEW TASK");
-		String title = In.getString("Title?");
-		String content = In.getString("Content?");
-		boolean isCompleted = In.getBoolean("Is completed?");
-		LocalDateTime dateCreated = LocalDateTime.now();
-		Task task = new Task(title, content, isCompleted, dateCreated);
+		Task task = TaskForm.create();
 		if (db.createTask(task)) {
 			System.out.println("Task created successfully!");
 			return true;
@@ -49,18 +44,7 @@ public class TaskServiceImpl implements Crud {
 			System.out.println("No task with id " + id);
 			return false;
 		}
-		if (In.getBoolean("Do you want to change the title?")) {
-			String title = In.getString("new title?");
-			task.setTitle(title);
-		}
-		if (In.getBoolean("Do you want to change the content?")) {
-			String content = In.getString("new content?");
-			task.setContent(content);
-		}
-		if (In.getBoolean("Do you want to change whether it is completed?")) {
-			boolean isCompleted = In.getBoolean("Is completed?");
-			task.setCompleted(isCompleted);
-		}
+		task = TaskForm.edit(task);
 		if (db.updateTask(task)) {
 			System.out.println("Task updated successfully!");
 			return true;
