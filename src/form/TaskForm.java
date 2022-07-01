@@ -7,7 +7,7 @@ import utilities.In;
 
 public class TaskForm {
 
-	public static Task createTask() {
+	public static Task create() {
 		System.out.println("CREATE TASK FORM");
 		String title = In.getString("Title:");
 		String content = In.getString("Content:");

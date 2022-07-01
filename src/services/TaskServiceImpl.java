@@ -13,7 +13,7 @@ public class TaskServiceImpl implements Crud {
 
 	@Override
 	public boolean create() {
-		Task task = TaskForm.createTask();
+		Task task = TaskForm.create();
 		if (db.createTask(task)) {
 			System.out.println("Task created successfully!");
 			return true;
