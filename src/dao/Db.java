@@ -10,6 +10,7 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
 import model.Task;
+import utility.Log;
 
 public class Db {
 
@@ -35,6 +36,7 @@ public class Db {
 					"jdbc:mysql://" + this.server + ":" + this.port + "/" + this.ddbb, this.user, this.password);
 			return true;
 		} catch (Exception e) {
+			Log.error(e);
 			return false;
 		}
 	}
@@ -51,7 +53,7 @@ public class Db {
 				statement.close();
 				result = true;
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Log.error(e);
 			}
 		}
 		return result;
@@ -76,7 +78,7 @@ public class Db {
 				statement.close();
 				return tasks;
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Log.error(e);
 			}
 		}
 		return null;
@@ -99,7 +101,7 @@ public class Db {
 				statement.close();
 				return task;
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Log.error(e);
 			}
 		}
 		return null;
@@ -114,7 +116,7 @@ public class Db {
 				statement.close();
 				result = true;
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Log.error(e);
 			}
 		}
 		return result;
@@ -129,7 +131,7 @@ public class Db {
 				statement.close();
 				result = true;
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Log.error(e);
 			}
 		}
 		return result;

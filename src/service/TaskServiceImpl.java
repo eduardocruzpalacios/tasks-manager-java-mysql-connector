@@ -18,7 +18,6 @@ public class TaskServiceImpl implements TaskService {
 			System.out.println("Task created successfully!");
 			return true;
 		}
-		System.out.println("Error in Database!");
 		return false;
 	}
 
