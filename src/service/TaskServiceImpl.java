@@ -5,6 +5,7 @@ import java.util.List;
 import dao.Db;
 import model.Task;
 import view.DataForm;
+import view.PrintData;
 import view.TaskForm;
 
 public class TaskServiceImpl implements TaskService {
@@ -14,19 +15,23 @@ public class TaskServiceImpl implements TaskService {
 	@Override
 	public void create() {
 		Task task = TaskForm.create();
+		String msg;
 		if (db.createTask(task)) {
-			System.out.println("Task created successfully!");
+			msg = "Task created successfully!";
+		} else {
+			msg = "An error ocurred when creating the task";
 		}
+		PrintData.str(msg);
 	}
 
 	@Override
 	public void findAll() {
 		List<Task> tasks = db.readTasks();
-		System.out.println("TASK LIST");
+		PrintData.str("TASK LIST");
 		if (tasks != null) {
-			tasks.forEach(e -> {
-				System.out.println(e);
-			});
+			PrintData.tasks(tasks);
+		} else {
+			PrintData.str("No task found");
 		}
 	}
 
@@ -35,11 +40,11 @@ public class TaskServiceImpl implements TaskService {
 		int id = DataForm.getInt("id?");
 		Task task = db.readTask(id);
 		if (task.getId() != id) {
-			System.out.println("No task with id " + id);
+			PrintData.str("No task with id " + id);
 		}
 		task = TaskForm.edit(task);
 		if (db.updateTask(task)) {
-			System.out.println("Task updated successfully!");
+			PrintData.str("Task updated successfully!");
 		}
 	}
 
@@ -48,10 +53,10 @@ public class TaskServiceImpl implements TaskService {
 		int id = DataForm.getInt("id?");
 		Task task = db.readTask(id);
 		if (task.getId() != id) {
-			System.out.println("No task with id " + id);
+			PrintData.str("No task with id " + id);
 		}
 		if (db.deleteTask(id)) {
-			System.out.println("Task deleted successfully!");
+			PrintData.str("Task deleted successfully!");
 		}
 	}
 
