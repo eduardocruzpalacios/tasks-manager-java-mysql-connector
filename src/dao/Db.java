@@ -84,11 +84,11 @@ public class Db {
 	}
 
 	public Task readTask(int id) {
+		Task task = new Task();
 		if (connect()) {
 			try {
 				statement = (Statement) connection.createStatement();
 				resultSet = statement.executeQuery(QueryBuilder.readTaskById(id));
-				Task task = new Task();
 				while (resultSet.next()) {
 					task.setId(resultSet.getInt("id"));
 					task.setTitle(resultSet.getString("title"));
@@ -98,12 +98,11 @@ public class Db {
 				}
 				resultSet.close();
 				statement.close();
-				return task;
 			} catch (SQLException e) {
 				Log.error(e);
 			}
 		}
-		return null;
+		return task;
 	}
 
 	public boolean updateTask(Task task) {
