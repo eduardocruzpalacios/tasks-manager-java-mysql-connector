@@ -54,4 +54,8 @@ public class DataForm {
 		return getIntBetween;
 	}
 
+	public static void closeScanner() {
+		scanner.close();
+	}
+
 }
