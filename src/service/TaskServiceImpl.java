@@ -16,9 +16,7 @@ public class TaskServiceImpl implements TaskService {
 		Task task = TaskForm.create();
 		if (db.createTask(task)) {
 			System.out.println("Task created successfully!");
-			return true;
 		}
-		return false;
 	}
 
 	@Override

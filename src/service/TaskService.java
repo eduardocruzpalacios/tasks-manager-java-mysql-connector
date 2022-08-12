@@ -2,7 +2,7 @@ package service;
 
 public interface TaskService {
 
-	public boolean create();
+	public void create();
 
 	public boolean findAll();
 
