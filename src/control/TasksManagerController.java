@@ -5,7 +5,7 @@ import gui.Window;
 import services.TaskServiceImpl;
 import utilities.In;
 
-public class Main {
+public class TasksManagerController {
 
 	public static void main(String[] args) {
 		TaskServiceImpl taskServiceImpl = new TaskServiceImpl();
