@@ -7,7 +7,7 @@ import form.TaskForm;
 import model.Task;
 import utilities.In;
 
-public class TaskServiceImpl implements Crud {
+public class TaskServiceImpl implements TaskService {
 
 	Db db = new Db();
 

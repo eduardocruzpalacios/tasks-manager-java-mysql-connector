@@ -1,6 +1,6 @@
 package service;
 
-public interface Crud {
+public interface TaskService {
 
 	public boolean create();
 
