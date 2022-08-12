@@ -31,6 +31,7 @@ public class TasksManagerController {
 				break;
 			}
 		} while (!exit);
+		DataForm.closeScanner();
 		Window.exit();
 	}
 
