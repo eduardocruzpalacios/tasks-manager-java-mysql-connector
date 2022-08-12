@@ -1,4 +1,4 @@
-import control.TasksManagerController;
+import controller.TasksManagerController;
 
 public class TasksManagerApplication {
 
