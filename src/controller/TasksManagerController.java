@@ -2,7 +2,7 @@ package controller;
 
 import gui.Menu;
 import gui.Window;
-import services.TaskServiceImpl;
+import service.TaskServiceImpl;
 import utilities.In;
 
 public class TasksManagerController {
