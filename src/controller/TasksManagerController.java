@@ -1,9 +1,9 @@
 package controller;
 
-import gui.Menu;
-import gui.Window;
 import service.TaskServiceImpl;
 import utilities.In;
+import view.Menu;
+import view.Window;
 
 public class TasksManagerController {
 
