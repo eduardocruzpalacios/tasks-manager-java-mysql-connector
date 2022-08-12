@@ -10,6 +10,7 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
 import model.Task;
+import utility.Log;
 
 public class Db {
 
@@ -35,6 +36,7 @@ public class Db {
 					"jdbc:mysql://" + this.server + ":" + this.port + "/" + this.ddbb, this.user, this.password);
 			return true;
 		} catch (Exception e) {
+			Log.error(e);
 			return false;
 		}
 	}
@@ -51,18 +53,18 @@ public class Db {
 				statement.close();
 				result = true;
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Log.error(e);
 			}
 		}
 		return result;
 	}
 
 	public List<Task> readTasks() {
+		List<Task> tasks = new ArrayList<Task>();
 		if (connect()) {
 			try {
 				statement = (Statement) connection.createStatement();
 				resultSet = statement.executeQuery(QueryBuilder.readAllTasks());
-				List<Task> tasks = new ArrayList<Task>();
 				while (resultSet.next()) {
 					Task task = new Task();
 					task.setId(resultSet.getInt("id"));
@@ -74,20 +76,19 @@ public class Db {
 				}
 				resultSet.close();
 				statement.close();
-				return tasks;
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Log.error(e);
 			}
 		}
-		return null;
+		return tasks;
 	}
 
 	public Task readTask(int id) {
+		Task task = new Task();
 		if (connect()) {
 			try {
 				statement = (Statement) connection.createStatement();
 				resultSet = statement.executeQuery(QueryBuilder.readTaskById(id));
-				Task task = new Task();
 				while (resultSet.next()) {
 					task.setId(resultSet.getInt("id"));
 					task.setTitle(resultSet.getString("title"));
@@ -97,12 +98,11 @@ public class Db {
 				}
 				resultSet.close();
 				statement.close();
-				return task;
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Log.error(e);
 			}
 		}
-		return null;
+		return task;
 	}
 
 	public boolean updateTask(Task task) {
@@ -114,7 +114,7 @@ public class Db {
 				statement.close();
 				result = true;
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Log.error(e);
 			}
 		}
 		return result;
@@ -129,7 +129,7 @@ public class Db {
 				statement.close();
 				result = true;
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Log.error(e);
 			}
 		}
 		return result;
