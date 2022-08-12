@@ -4,10 +4,10 @@ public interface TaskService {
 
 	public void create();
 
-	public boolean findAll();
+	public void findAll();
 
-	public boolean update();
+	public void update();
 
-	public boolean delete();
+	public void delete();
 
 }
