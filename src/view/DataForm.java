@@ -2,7 +2,7 @@ package view;
 
 import java.util.Scanner;
 
-public class In {
+public class DataForm {
 
 	private static Scanner scanner;
 
@@ -44,7 +44,7 @@ public class In {
 		boolean exit = false;
 		int getIntBetween = 0;
 		while (!exit) {
-			getIntBetween = In.getInt(message);
+			getIntBetween = DataForm.getInt(message);
 			if (getIntBetween >= num1 && getIntBetween <= num2) {
 				exit = true;
 			} else {

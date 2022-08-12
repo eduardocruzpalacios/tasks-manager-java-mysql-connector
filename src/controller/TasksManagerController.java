@@ -1,7 +1,7 @@
 package controller;
 
 import service.TaskServiceImpl;
-import view.In;
+import view.DataForm;
 import view.Menu;
 import view.Window;
 
@@ -15,7 +15,7 @@ public class TasksManagerController {
 		do {
 			taskServiceImpl.findAll();
 			Menu.taskManagement();
-			option = In.getIntBetween(1, 4, "What do you want to do?", "choose an option between 1 and 4");
+			option = DataForm.getIntBetween(1, 4, "What do you want to do?", "choose an option between 1 and 4");
 			switch (option) {
 			case 1:
 				taskServiceImpl.create();

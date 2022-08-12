@@ -4,7 +4,7 @@ import java.util.List;
 
 import dao.Db;
 import model.Task;
-import view.In;
+import view.DataForm;
 import view.TaskForm;
 
 public class TaskServiceImpl implements TaskService {
@@ -38,7 +38,7 @@ public class TaskServiceImpl implements TaskService {
 
 	@Override
 	public boolean update() {
-		int id = In.getInt("id?");
+		int id = DataForm.getInt("id?");
 		Task task = db.readTask(id);
 		if (task.getId() != id) {
 			System.out.println("No task with id " + id);
@@ -55,7 +55,7 @@ public class TaskServiceImpl implements TaskService {
 
 	@Override
 	public boolean delete() {
-		int id = In.getInt("id?");
+		int id = DataForm.getInt("id?");
 		Task task = db.readTask(id);
 		if (task.getId() != id) {
 			System.out.println("No task with id " + id);
