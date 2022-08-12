@@ -59,9 +59,14 @@ public class TaskServiceImpl implements TaskService {
 		Task task = db.readTask(id);
 		if (task.getId() != id) {
 			PrintData.str("No task with id " + id);
-		}
-		if (db.deleteTask(id)) {
-			PrintData.str("Task deleted successfully!");
+		} else {
+			String msg;
+			if (db.deleteTask(id)) {
+				msg = "Task deleted successfully!";
+			} else {
+				msg = "An error ocurred when deleting the task";
+			}
+			PrintData.str(msg);
 		}
 	}
 
