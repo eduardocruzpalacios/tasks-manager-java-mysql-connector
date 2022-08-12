@@ -1,13 +1,13 @@
-package control;
+package controller;
 
-import gui.Menu;
-import gui.Window;
-import services.TaskServiceImpl;
-import utilities.In;
+import service.TaskServiceImpl;
+import view.DataForm;
+import view.Menu;
+import view.Window;
 
-public class Main {
+public class TasksManagerController {
 
-	public static void main(String[] args) {
+	public static void run() {
 		TaskServiceImpl taskServiceImpl = new TaskServiceImpl();
 		Window.start();
 		int option;
@@ -15,7 +15,7 @@ public class Main {
 		do {
 			taskServiceImpl.findAll();
 			Menu.taskManagement();
-			option = In.getIntBetween(1, 4, "What do you want to do?", "choose an option between 1 and 4");
+			option = DataForm.getIntBetween(1, 4, "What do you want to do?", "choose an option between 1 and 4");
 			switch (option) {
 			case 1:
 				taskServiceImpl.create();
@@ -31,6 +31,7 @@ public class Main {
 				break;
 			}
 		} while (!exit);
+		DataForm.closeScanner();
 		Window.exit();
 	}
 
