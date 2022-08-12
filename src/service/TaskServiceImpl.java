@@ -41,10 +41,15 @@ public class TaskServiceImpl implements TaskService {
 		Task task = db.readTask(id);
 		if (task.getId() != id) {
 			PrintData.str("No task with id " + id);
-		}
-		task = TaskForm.edit(task);
-		if (db.updateTask(task)) {
-			PrintData.str("Task updated successfully!");
+		} else {
+			task = TaskForm.edit(task);
+			String msg;
+			if (db.updateTask(task)) {
+				msg = "Task updated successfully!";
+			} else {
+				msg = "An error ocurred when updating the task";
+			}
+			PrintData.str(msg);
 		}
 	}
 
