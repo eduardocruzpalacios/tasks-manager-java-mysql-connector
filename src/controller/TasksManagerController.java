@@ -1,7 +1,7 @@
 package controller;
 
 import service.TaskServiceImpl;
-import utilities.In;
+import view.In;
 import view.Menu;
 import view.Window;
 
