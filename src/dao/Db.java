@@ -60,11 +60,11 @@ public class Db {
 	}
 
 	public List<Task> readTasks() {
+		List<Task> tasks = new ArrayList<Task>();
 		if (connect()) {
 			try {
 				statement = (Statement) connection.createStatement();
 				resultSet = statement.executeQuery(QueryBuilder.readAllTasks());
-				List<Task> tasks = new ArrayList<Task>();
 				while (resultSet.next()) {
 					Task task = new Task();
 					task.setId(resultSet.getInt("id"));
@@ -76,12 +76,11 @@ public class Db {
 				}
 				resultSet.close();
 				statement.close();
-				return tasks;
 			} catch (SQLException e) {
 				Log.error(e);
 			}
 		}
-		return null;
+		return tasks;
 	}
 
 	public Task readTask(int id) {
