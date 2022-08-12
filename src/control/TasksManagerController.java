@@ -7,7 +7,7 @@ import utilities.In;
 
 public class TasksManagerController {
 
-	public static void main(String[] args) {
+	public static void run() {
 		TaskServiceImpl taskServiceImpl = new TaskServiceImpl();
 		Window.start();
 		int option;
