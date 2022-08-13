@@ -3,21 +3,21 @@ package view;
 public class Window {
 
 	public static void start() {
-		System.out.println("");
-		System.out.println("****************************************************");
-		System.out.println("*                                                  *");
-		System.out.println("*                 TASKS MANAGEMENT                 *");
-		System.out.println("*                                                  *");
-		System.out.println("****************************************************");
+		PrintData.string("");
+		PrintData.string("****************************************************");
+		PrintData.string("*                                                  *");
+		PrintData.string("*                 TASKS MANAGEMENT                 *");
+		PrintData.string("*                                                  *");
+		PrintData.string("****************************************************");
 	}
 
 	public static void exit() {
-		System.out.println("");
-		System.out.println("***************************************************");
-		System.out.println("*                                                 *");
-		System.out.println("*                    ¡BYE BYE!                    *");
-		System.out.println("*                                                 *");
-		System.out.println("***************************************************");
+		PrintData.string("");
+		PrintData.string("***************************************************");
+		PrintData.string("*                                                 *");
+		PrintData.string("*                    ¡BYE BYE!                    *");
+		PrintData.string("*                                                 *");
+		PrintData.string("***************************************************");
 	}
 
 }
