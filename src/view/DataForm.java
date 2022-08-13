@@ -23,9 +23,8 @@ public class DataForm {
 		} while (!exit);
 		if (answer.equals("yes")) {
 			return true;
-		} else {
-			return false;
 		}
+		return false;
 	}
 
 	public static int getInt(String message) {
