@@ -7,7 +7,7 @@ public class DataForm {
 	private static Scanner scanner;
 
 	public static String getString(String message) {
-		System.out.println(message);
+		PrintData.string(message);
 		scanner = new Scanner(System.in, "ISO-8859-1");
 		return scanner.nextLine();
 	}
@@ -29,11 +29,11 @@ public class DataForm {
 	}
 
 	public static int getInt(String message) {
-		System.out.println(message);
+		PrintData.string(message);
 		int getInt;
 		scanner = new Scanner(System.in);
 		while (scanner.hasNextInt() == false) {
-			System.out.println(message);
+			PrintData.string(message);
 			scanner.next();
 		}
 		getInt = scanner.nextInt();
@@ -48,7 +48,7 @@ public class DataForm {
 			if (getIntBetween >= num1 && getIntBetween <= num2) {
 				exit = true;
 			} else {
-				System.out.println(error);
+				PrintData.string(error);
 			}
 		}
 		return getIntBetween;
