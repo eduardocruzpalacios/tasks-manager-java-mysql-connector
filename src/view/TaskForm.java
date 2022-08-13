@@ -7,7 +7,7 @@ import model.Task;
 public class TaskForm {
 
 	public static Task create() {
-		System.out.println("CREATE TASK FORM");
+		PrintData.string("CREATE TASK FORM");
 		String title = DataForm.getString("Title:");
 		String content = DataForm.getString("Content:");
 		boolean isCompleted = DataForm.getBoolean("Is completed:");
@@ -17,7 +17,7 @@ public class TaskForm {
 	}
 
 	public static Task edit(Task task) {
-		System.out.println("EDIT TASK FORM");
+		PrintData.string("EDIT TASK FORM");
 		if (DataForm.getBoolean("Do you want to change the title?")) {
 			String title = DataForm.getString("new title?");
 			task.setTitle(title);
