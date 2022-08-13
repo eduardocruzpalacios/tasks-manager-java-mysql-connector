@@ -5,7 +5,7 @@
     </Properties>
  
     <Appenders>
-        <RollingFile name="file-log" fileName="${log-path}/tasks-manager.log" filePattern="${log-path}/tasks-managger-%d{yyyy-MM-dd}.log">
+        <RollingFile name="file-log" fileName="${log-path}/tasks-manager.log" filePattern="${log-path}/tasks-manager-%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="[%5p] - %c{1}:%L %d{yyyy-MM-dd HH:mm:ss} - %m%n"/>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1"  modulate="true" />
