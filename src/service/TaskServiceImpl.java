@@ -57,9 +57,7 @@ public class TaskServiceImpl implements TaskService {
 	public void delete() {
 		int id = DataForm.getInt("id?");
 		Task task = db.readTask(id);
-		if (task.getId() != id) {
-			PrintData.string("No task with id " + id);
-		} else {
+		if (task.getId() == id) {
 			String message;
 			if (db.deleteTask(id)) {
 				message = "Task deleted successfully!";
@@ -67,6 +65,8 @@ public class TaskServiceImpl implements TaskService {
 				message = "An error ocurred when deleting the task";
 			}
 			PrintData.string(message);
+		} else {
+			PrintData.string("No task with id " + id);
 		}
 	}
 
