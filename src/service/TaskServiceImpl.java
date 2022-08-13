@@ -15,13 +15,13 @@ public class TaskServiceImpl implements TaskService {
 	@Override
 	public void create() {
 		Task task = TaskForm.create();
-		String msg;
+		String message;
 		if (db.createTask(task)) {
-			msg = "Task created successfully!";
+			message = "Task created successfully!";
 		} else {
-			msg = "An error ocurred when creating the task";
+			message = "An error ocurred when creating the task";
 		}
-		PrintData.string(msg);
+		PrintData.string(message);
 	}
 
 	@Override
@@ -43,13 +43,13 @@ public class TaskServiceImpl implements TaskService {
 			PrintData.string("No task with id " + id);
 		} else {
 			task = TaskForm.edit(task);
-			String msg;
+			String message;
 			if (db.updateTask(task)) {
-				msg = "Task updated successfully!";
+				message = "Task updated successfully!";
 			} else {
-				msg = "An error ocurred when updating the task";
+				message = "An error ocurred when updating the task";
 			}
-			PrintData.string(msg);
+			PrintData.string(message);
 		}
 	}
 
@@ -60,13 +60,13 @@ public class TaskServiceImpl implements TaskService {
 		if (task.getId() != id) {
 			PrintData.string("No task with id " + id);
 		} else {
-			String msg;
+			String message;
 			if (db.deleteTask(id)) {
-				msg = "Task deleted successfully!";
+				message = "Task deleted successfully!";
 			} else {
-				msg = "An error ocurred when deleting the task";
+				message = "An error ocurred when deleting the task";
 			}
-			PrintData.string(msg);
+			PrintData.string(message);
 		}
 	}
 
