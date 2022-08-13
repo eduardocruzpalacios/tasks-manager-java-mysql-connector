@@ -28,7 +28,7 @@ public class TaskServiceImpl implements TaskService {
 	public void findAll() {
 		List<Task> tasks = db.readTasks();
 		PrintData.string("TASK LIST");
-		if (tasks.size() == 0) {
+		if (tasks.size() > 0) {
 			PrintData.tasks(tasks);
 		} else {
 			PrintData.string("No task found");
