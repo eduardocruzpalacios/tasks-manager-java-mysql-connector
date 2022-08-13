@@ -21,17 +21,17 @@ public class TaskServiceImpl implements TaskService {
 		} else {
 			msg = "An error ocurred when creating the task";
 		}
-		PrintData.str(msg);
+		PrintData.string(msg);
 	}
 
 	@Override
 	public void findAll() {
 		List<Task> tasks = db.readTasks();
-		PrintData.str("TASK LIST");
+		PrintData.string("TASK LIST");
 		if (tasks.size() == 0) {
 			PrintData.tasks(tasks);
 		} else {
-			PrintData.str("No task found");
+			PrintData.string("No task found");
 		}
 	}
 
@@ -40,7 +40,7 @@ public class TaskServiceImpl implements TaskService {
 		int id = DataForm.getInt("id?");
 		Task task = db.readTask(id);
 		if (task.getId() != id) {
-			PrintData.str("No task with id " + id);
+			PrintData.string("No task with id " + id);
 		} else {
 			task = TaskForm.edit(task);
 			String msg;
@@ -49,7 +49,7 @@ public class TaskServiceImpl implements TaskService {
 			} else {
 				msg = "An error ocurred when updating the task";
 			}
-			PrintData.str(msg);
+			PrintData.string(msg);
 		}
 	}
 
@@ -58,7 +58,7 @@ public class TaskServiceImpl implements TaskService {
 		int id = DataForm.getInt("id?");
 		Task task = db.readTask(id);
 		if (task.getId() != id) {
-			PrintData.str("No task with id " + id);
+			PrintData.string("No task with id " + id);
 		} else {
 			String msg;
 			if (db.deleteTask(id)) {
@@ -66,7 +66,7 @@ public class TaskServiceImpl implements TaskService {
 			} else {
 				msg = "An error ocurred when deleting the task";
 			}
-			PrintData.str(msg);
+			PrintData.string(msg);
 		}
 	}
 
