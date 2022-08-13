@@ -91,11 +91,16 @@ public class Db {
 				statement = (Statement) connection.createStatement();
 				resultSet = statement.executeQuery(QueryBuilder.readTaskById(id));
 				while (resultSet.next()) {
-					task.setId(resultSet.getInt("id"));
-					task.setTitle(resultSet.getString("title"));
-					task.setContent(resultSet.getString("content"));
-					task.setCompleted(resultSet.getBoolean("is_completed"));
-					task.setDateCreated(resultSet.getTimestamp(5).toLocalDateTime());
+					int idReadFromDb = resultSet.getInt("id");
+					String title = resultSet.getString("title");
+					String content = resultSet.getString("content");
+					boolean isCompleted = resultSet.getBoolean("is_completed");
+					LocalDateTime dateCreated = resultSet.getTimestamp(5).toLocalDateTime();
+					task.setId(idReadFromDb);
+					task.setTitle(title);
+					task.setContent(content);
+					task.setCompleted(isCompleted);
+					task.setDateCreated(dateCreated);
 				}
 				resultSet.close();
 				statement.close();
