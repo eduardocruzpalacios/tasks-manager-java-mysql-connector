@@ -3,6 +3,7 @@ package dao;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,12 +67,12 @@ public class Db {
 				statement = (Statement) connection.createStatement();
 				resultSet = statement.executeQuery(QueryBuilder.readAllTasks());
 				while (resultSet.next()) {
-					Task task = new Task();
-					task.setId(resultSet.getInt("id"));
-					task.setTitle(resultSet.getString("title"));
-					task.setContent(resultSet.getString("content"));
-					task.setCompleted(resultSet.getBoolean("is_completed"));
-					task.setDateCreated(resultSet.getTimestamp(5).toLocalDateTime());
+					int id = resultSet.getInt("id");
+					String title = resultSet.getString("title");
+					String content = resultSet.getString("content");
+					boolean isCompleted = resultSet.getBoolean("is_completed");
+					LocalDateTime dateCreated = resultSet.getTimestamp(5).toLocalDateTime();
+					Task task = new Task(id, title, content, isCompleted, dateCreated);
 					tasks.add(task);
 				}
 				resultSet.close();
