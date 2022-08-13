@@ -7,8 +7,9 @@ import view.Window;
 
 public class TasksManagerController {
 
-	public static void run() {
-		TaskServiceImpl taskServiceImpl = new TaskServiceImpl();
+	TaskServiceImpl taskServiceImpl = new TaskServiceImpl();
+
+	public void run() {
 		Window.start();
 		int option;
 		boolean exit = false;
