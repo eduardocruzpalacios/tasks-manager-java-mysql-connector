@@ -39,7 +39,15 @@ public class DataForm {
 		return getInt;
 	}
 
-	public static int getIntBetween(int num1, int num2, String message, String error) {
+	public static int getIntBetween(int num1, int num2, String message, String errorMessage) {
+		if (num1 == num2) {
+			return num1;
+		}
+		if (num1 > num2) {
+			int aux = num1;
+			num1 = num2;
+			num2 = aux;
+		}
 		boolean exit = false;
 		int getIntBetween = 0;
 		while (!exit) {
@@ -47,7 +55,7 @@ public class DataForm {
 			if (getIntBetween >= num1 && getIntBetween <= num2) {
 				exit = true;
 			} else {
-				PrintData.string(error);
+				PrintData.string(errorMessage);
 			}
 		}
 		return getIntBetween;
