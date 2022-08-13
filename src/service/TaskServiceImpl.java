@@ -39,9 +39,7 @@ public class TaskServiceImpl implements TaskService {
 	public void update() {
 		int id = DataForm.getInt("id?");
 		Task task = db.readTask(id);
-		if (task.getId() != id) {
-			PrintData.string("No task with id " + id);
-		} else {
+		if (task.getId() == id) {
 			task = TaskForm.edit(task);
 			String message;
 			if (db.updateTask(task)) {
@@ -50,6 +48,8 @@ public class TaskServiceImpl implements TaskService {
 				message = "An error ocurred when updating the task";
 			}
 			PrintData.string(message);
+		} else {
+			PrintData.string("No task with id " + id);
 		}
 	}
 
