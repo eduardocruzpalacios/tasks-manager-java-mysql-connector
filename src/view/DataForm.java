@@ -12,7 +12,7 @@ public class DataForm {
 		return scanner.nextLine();
 	}
 
-	public static boolean getBoolean(String message) {
+	public static boolean getBooleanByYesNoQuestion(String message) {
 		String answer;
 		boolean exit = false;
 		do {

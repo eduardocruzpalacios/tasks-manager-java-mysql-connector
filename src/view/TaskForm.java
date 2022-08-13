@@ -10,7 +10,7 @@ public class TaskForm {
 		PrintData.string("CREATE TASK FORM");
 		String title = DataForm.getString("Title:");
 		String content = DataForm.getString("Content:");
-		boolean isCompleted = DataForm.getBoolean("Is completed:");
+		boolean isCompleted = DataForm.getBooleanByYesNoQuestion("Is completed:");
 		LocalDateTime dateCreated = LocalDateTime.now();
 		Task task = new Task(title, content, isCompleted, dateCreated);
 		return task;
@@ -18,16 +18,16 @@ public class TaskForm {
 
 	public static Task edit(Task task) {
 		PrintData.string("EDIT TASK FORM");
-		if (DataForm.getBoolean("Do you want to change the title?")) {
+		if (DataForm.getBooleanByYesNoQuestion("Do you want to change the title?")) {
 			String title = DataForm.getString("new title?");
 			task.setTitle(title);
 		}
-		if (DataForm.getBoolean("Do you want to change the content?")) {
+		if (DataForm.getBooleanByYesNoQuestion("Do you want to change the content?")) {
 			String content = DataForm.getString("new content?");
 			task.setContent(content);
 		}
-		if (DataForm.getBoolean("Do you want to change whether it is completed?")) {
-			boolean isCompleted = DataForm.getBoolean("Is completed?");
+		if (DataForm.getBooleanByYesNoQuestion("Do you want to change whether it is completed?")) {
+			boolean isCompleted = DataForm.getBooleanByYesNoQuestion("Is completed?");
 			task.setCompleted(isCompleted);
 		}
 		return task;
