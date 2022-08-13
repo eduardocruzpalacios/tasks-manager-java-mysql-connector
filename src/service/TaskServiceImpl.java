@@ -15,23 +15,23 @@ public class TaskServiceImpl implements TaskService {
 	@Override
 	public void create() {
 		Task task = TaskForm.create();
-		String msg;
+		String message;
 		if (db.createTask(task)) {
-			msg = "Task created successfully!";
+			message = "Task created successfully!";
 		} else {
-			msg = "An error ocurred when creating the task";
+			message = "An error ocurred when creating the task";
 		}
-		PrintData.str(msg);
+		PrintData.string(message);
 	}
 
 	@Override
 	public void findAll() {
 		List<Task> tasks = db.readTasks();
-		PrintData.str("TASK LIST");
-		if (tasks.size() == 0) {
+		PrintData.string("TASK LIST");
+		if (tasks.size() > 0) {
 			PrintData.tasks(tasks);
 		} else {
-			PrintData.str("No task found");
+			PrintData.string("No task found");
 		}
 	}
 
@@ -39,17 +39,17 @@ public class TaskServiceImpl implements TaskService {
 	public void update() {
 		int id = DataForm.getInt("id?");
 		Task task = db.readTask(id);
-		if (task.getId() != id) {
-			PrintData.str("No task with id " + id);
-		} else {
+		if (task.getId() == id) {
 			task = TaskForm.edit(task);
-			String msg;
+			String message;
 			if (db.updateTask(task)) {
-				msg = "Task updated successfully!";
+				message = "Task updated successfully!";
 			} else {
-				msg = "An error ocurred when updating the task";
+				message = "An error ocurred when updating the task";
 			}
-			PrintData.str(msg);
+			PrintData.string(message);
+		} else {
+			PrintData.string("No task with id " + id);
 		}
 	}
 
@@ -57,16 +57,16 @@ public class TaskServiceImpl implements TaskService {
 	public void delete() {
 		int id = DataForm.getInt("id?");
 		Task task = db.readTask(id);
-		if (task.getId() != id) {
-			PrintData.str("No task with id " + id);
-		} else {
-			String msg;
+		if (task.getId() == id) {
+			String message;
 			if (db.deleteTask(id)) {
-				msg = "Task deleted successfully!";
+				message = "Task deleted successfully!";
 			} else {
-				msg = "An error ocurred when deleting the task";
+				message = "An error ocurred when deleting the task";
 			}
-			PrintData.str(msg);
+			PrintData.string(message);
+		} else {
+			PrintData.string("No task with id " + id);
 		}
 	}
 
