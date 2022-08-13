@@ -7,12 +7,12 @@ public class DataForm {
 	private static Scanner scanner;
 
 	public static String getString(String message) {
-		System.out.println(message);
+		PrintData.string(message);
 		scanner = new Scanner(System.in, "ISO-8859-1");
 		return scanner.nextLine();
 	}
 
-	public static boolean getBoolean(String message) {
+	public static boolean getBooleanByYesNoQuestion(String message) {
 		String answer;
 		boolean exit = false;
 		do {
@@ -23,24 +23,31 @@ public class DataForm {
 		} while (!exit);
 		if (answer.equals("yes")) {
 			return true;
-		} else {
-			return false;
 		}
+		return false;
 	}
 
 	public static int getInt(String message) {
-		System.out.println(message);
+		PrintData.string(message);
 		int getInt;
 		scanner = new Scanner(System.in);
 		while (scanner.hasNextInt() == false) {
-			System.out.println(message);
+			PrintData.string(message);
 			scanner.next();
 		}
 		getInt = scanner.nextInt();
 		return getInt;
 	}
 
-	public static int getIntBetween(int num1, int num2, String message, String error) {
+	public static int getIntBetween(int num1, int num2, String message, String errorMessage) {
+		if (num1 == num2) {
+			return num1;
+		}
+		if (num1 > num2) {
+			int aux = num1;
+			num1 = num2;
+			num2 = aux;
+		}
 		boolean exit = false;
 		int getIntBetween = 0;
 		while (!exit) {
@@ -48,7 +55,7 @@ public class DataForm {
 			if (getIntBetween >= num1 && getIntBetween <= num2) {
 				exit = true;
 			} else {
-				System.out.println(error);
+				PrintData.string(errorMessage);
 			}
 		}
 		return getIntBetween;
