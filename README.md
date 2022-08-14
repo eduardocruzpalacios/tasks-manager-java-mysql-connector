@@ -19,6 +19,14 @@
 |view|information showed to the users and requested from them|
 |utility|methods for frequently needs|
 
+## Data Structure
+|data|structure|
+|----------------|-------------------------------|
+|Task|int id, String title, String content, boolean isCompleted, LocalDateTime dateCreated|
+
+## Data source
+MySQL database.
+
 ## Testing
 - Unit tests are made with JUnit 5
 - Only model classes are tested
