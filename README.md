@@ -1,13 +1,8 @@
-# tasks-manager-java-mysql-connector
+# Tasks Manager
 
-## Scope
-- Console application that allows to perform CRUD actions over a database containing a table for tasks.
-- SQL statements to create the database and table along with CRUD queries are provided.
+Task manager console application built with JDK 11.0.12, MySQL & [MySQL connector: JDBC Driver for MySQL (Connector/J)](https://www.mysql.com/products/connector/).
 
-## Technology
-- JDK 11.0.12
-- MySQL
-- [MySQL connector: JDBC Driver for MySQL (Connector/J)](https://www.mysql.com/products/connector/)
+SQL statements to create the database and table along with CRUD queries are provided.
 
 ## Architecture
 |package|purpose|
@@ -19,12 +14,19 @@
 |view|information showed to the users and requested from them|
 |utility|methods for frequently needs|
 
+## Functions
+### Tasks
+- Create one
+- Read and print all
+- Delete one
+- Update one
+
 ## Data Structure
 |data|structure|
 |----------------|-------------------------------|
 |Task|int id, String title, String content, boolean isCompleted, LocalDateTime dateCreated|
 
-## Data source
+## Data Source
 MySQL database.
 
 ## Testing
