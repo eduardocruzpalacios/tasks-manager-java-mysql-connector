@@ -1,8 +1,5 @@
 # Tasks Manager
-
 Task manager console application built with JDK 11.0.12, MySQL & [MySQL connector: JDBC Driver for MySQL (Connector/J)](https://www.mysql.com/products/connector/).
-
-SQL statements to create the database and table along with CRUD queries are provided.
 ## Functionality
 ### Tasks
 - Create one
@@ -24,6 +21,8 @@ SQL statements to create the database and table along with CRUD queries are prov
 | Task | int id, String title, String content, boolean isCompleted, LocalDateTime dateCreated |
 ## Data Source
 MySQL database.
+
+SQL statements to create the database and table along with CRUD queries are provided.
 ## Testing
 - Unit tests are made with JUnit 5
 - Only model classes are tested
