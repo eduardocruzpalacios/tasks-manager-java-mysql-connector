@@ -13,7 +13,7 @@ Task manager console application built with JDK 11.0.12, MySQL & [MySQL connecto
 | dao        | methods to communicate with data source and perform the tasks demanded by the business logic |
 | service    | interfaces with business-logic-oriented methods along with the classes implementing them     |
 | controller | the flow of the application                                                                  |
-| view       | information showed to the users and requested from them                                      |
+| view       | information showed to users and requested from them                                          |
 | utility    | methods for frequently needs                                                                 |
 ## Data Structure
 | data | structure                                                                            |

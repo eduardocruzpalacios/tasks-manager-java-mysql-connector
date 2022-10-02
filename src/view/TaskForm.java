@@ -3,6 +3,7 @@ package view;
 import java.time.LocalDateTime;
 
 import model.Task;
+import model.TaskPrototype;
 
 public class TaskForm {
 
@@ -18,19 +19,20 @@ public class TaskForm {
 
 	public static Task edit(Task task) {
 		PrintData.string("EDIT TASK FORM");
+		Task taskEdited = TaskPrototype.clone(task);
 		if (DataForm.getBooleanByYesNoQuestion("Do you want to change the title?")) {
 			String title = DataForm.getString("new title?");
-			task.setTitle(title);
+			taskEdited.setTitle(title);
 		}
 		if (DataForm.getBooleanByYesNoQuestion("Do you want to change the content?")) {
 			String content = DataForm.getString("new content?");
-			task.setContent(content);
+			taskEdited.setContent(content);
 		}
 		if (DataForm.getBooleanByYesNoQuestion("Do you want to change whether it is completed?")) {
 			boolean isCompleted = DataForm.getBooleanByYesNoQuestion("Is completed?");
-			task.setCompleted(isCompleted);
+			taskEdited.setCompleted(isCompleted);
 		}
-		return task;
+		return taskEdited;
 	}
 
 }
